@@ -1,0 +1,140 @@
+.header{
+    width: 100%;
+    height: $header-height;
+    background-color: $main-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: height .5s ease;
+    z-index: 99;
+
+    &.shrink{
+        height: $header-shrink-height;
+        box-shadow: $box-shadow;
+        z-index: 100;
+    }
+
+    @include tablet{
+        height: $header-tablet-height;
+        box-shadow: $box-shadow;
+    }
+
+    @include mobile{
+        height: $header-mobile-height;
+        box-shadow: $box-shadow;
+    }
+
+    &__logo{
+        @include flex(center,center);
+        inset: 0;
+        position: absolute;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        pointer-events: none;
+
+        @include mobile{
+            font-size: 2.2rem;
+        }
+    }
+
+    &__menu{
+        @include flex(center, space-between);
+        height: 100%;
+        font-size: 1.6rem;
+
+        &__mobile-toggle{
+            display: none;
+
+            @include tablet{
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+        &__close{
+            display: none;
+
+            @include tablet{
+                display: block;
+                cursor: pointer;
+                position: absolute;
+                top: 20px;
+                left: 25px;
+            }
+        }
+
+        &__left,
+        &__right{
+            @include flex(center, center);
+        }
+
+        &__item ~ &__item{
+            margin-left: 40px;
+
+            @include tablet{
+                margin-left: 20px;
+            }
+
+            @include mobile{
+                margin-left: 10px;
+            }
+        }
+
+        &__item{
+            color: $txt-second-color;
+            transition: all .5s ease;
+
+            &:hover{
+                color: $txt-main-color;
+                font-weight: 600;
+            }
+        }
+
+        &__item.active{
+            color: $txt-main-color;
+            font-weight: 600;
+        }
+
+        &__icon{
+            cursor: pointer;
+            width: 2rem !important;
+            height: 2rem !important;
+        }
+
+        &__left{
+            @include tablet{
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                background-color: $main-bg;
+                box-shadow: $box-shadow;
+                height: 100vh;
+                width: 60%;
+                z-index: 100;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 60px 30px;
+                transform: translateX(-100%);
+                transition: transform .5s ease;
+
+                &.active{
+                    transform: translateX(0);
+                }
+            }
+
+            @include mobile{
+                width: 80%;
+            }
+
+            &__item ~ &__item{
+                @include tablet{
+                    margin-left: 0;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}

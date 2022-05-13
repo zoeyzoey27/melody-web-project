@@ -1,0 +1,79 @@
+.footer{
+    background-color: #f5f5f5;
+    box-shadow: $box-shadow;
+    padding: 50px 0;
+
+    &__title{
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    &__content{
+        margin: 20px 0;
+        font-size: 1.5rem;
+
+        &__item ~ &__item{
+           margin-top: 20px;
+        }
+
+        &__link:hover{
+            font-weight: 600;
+        }
+
+        &__social-media{
+            @include flex(flex-start, flex-start)
+        }
+
+        &__item{
+            &__social-media{
+               margin-left: 10px;
+
+               &__icon ~ &__icon{
+                   margin-left: 5px;
+               }
+
+               &__icon:nth-child(1):hover{
+                   color: #4267b2;
+               }
+               &__icon:nth-child(2):hover{
+                   color: #CD486B;
+               }
+               &__icon:nth-child(3):hover{
+                   color: #EA4335;
+               }
+
+            }
+        }
+    }
+    &__logo{
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
+    &__about{
+        text-align: justify;
+        font-size: 1.5rem;
+    }
+    &__bottom{
+        @include flex(center, center);
+        flex-direction: column;
+    }
+    &__copyright{
+        @include flex (center, center);
+        flex-direction: column;
+        margin: 20px 0;
+        font-size: 1.2rem;
+        color: $txt-second-color;
+
+        &__item{
+            text-align: center;
+        }
+    }
+}
+hr{
+    color: $txt-second-color;
+    margin: 20px 0;
+}
