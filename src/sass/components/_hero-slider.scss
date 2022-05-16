@@ -1,0 +1,73 @@
+.hero-slider{
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+    margin-top: calc(#{$header-height} * -1);
+
+    @include tablet {
+        margin-top: calc(#{$header-tablet-height} * -1);
+    }
+
+    @include mobile {
+        margin-top: calc(#{$header-mobile-height} * -1);
+    }
+    
+    &__item{
+        @include flex(center,center);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+
+        &.active{
+            opacity: 1;
+            visibility: visible;
+            pointer-events: visible;
+        }
+
+        &__info{
+            width: 58.33%;
+
+            @include tablet{
+                width: 100%;
+            }
+
+            &__title{
+                font-size: 3rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            &__desc{
+                margin: 30px 0;
+                font-size: 1.8rem;
+                color: $txt-second-color;
+                letter-spacing: 1px;
+            }
+        }
+    }
+    &__control{
+        @include flex(center,center);
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &__item ~ &__item{
+            margin-left: 10px;
+        }
+
+        &__item{
+            font-size: 1.6rem;
+            line-height: 1.6rem;
+        }
+        &__icon{
+            width: 2.5rem !important;
+            height: 2.5rem !important;
+            cursor: pointer;
+        }
+    }
+    
+}
