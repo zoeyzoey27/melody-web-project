@@ -1,4 +1,5 @@
 import React from 'react'
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 
 const HeroSliderItem = props => {
   return (
@@ -12,7 +13,10 @@ const HeroSliderItem = props => {
                  <span>{props.item.description}</span>
              </div>
              <div className='hero-slider__item__info__btn'>
-                 <button>Xem chi tiết</button>
+                 <button className='btn btn--animate'>
+                     <span className='btn--animate__txt'>Xem chi tiết</span>
+                     <span className='btn--animate__icon-container'><ArrowRightAltIcon className='btn--animate__icon'/></span>
+                 </button>
              </div>
         </div>
         <div className='hero-slider__item__image'>

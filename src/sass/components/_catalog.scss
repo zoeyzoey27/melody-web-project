@@ -1,0 +1,82 @@
+.catalog{
+    @include flex(flex-start, flex-start);
+
+    @include tablet{
+        flex-direction: column;
+    }
+
+    &__btn{
+        margin-bottom: 25px;
+        display: none;
+
+        @include tablet{
+            display: block;
+        }
+    }
+
+    &__filter{
+        width: 20%;
+
+        @include tablet{
+            width: max-content;
+            height: 100vh;
+            padding: 50px 20px;
+            position: fixed;
+            background-color: $main-bg;
+            box-shadow: $box-shadow;
+            left: 0;
+            top: $header-mobile-height;
+            z-index: 98;
+            overflow: scroll;
+            // display: none;
+            transform: translateX(-100%);
+            transition: all .5s ease;
+        }
+
+        &.active{
+            @include tablet{
+                // display: block;
+                transform: translateX(0);
+            }
+        }
+
+        &__widget{
+            margin-bottom: 20px;
+
+            &__title{
+                font-size: 1.8rem;
+                text-transform: capitalize;
+                font-weight: 600;
+                margin-bottom: 25px;
+            }
+
+            &__content{
+                font-size: 1.6rem;
+                color: $txt-second-color;
+
+                &__item ~ &__item{
+                    margin-top: 16px;
+                }
+            }
+
+        }
+        &__close{
+            width: 2.5rem !important;
+            height: 2.5rem !important;
+            margin: -15px -5px 20px;
+            display: none !important;
+
+            @include tablet{
+                display: block !important;
+            }
+        }
+    }
+
+    &__content{
+        flex-grow: 1;
+
+        @include tablet{
+            width: 100%;
+        }
+    }
+}

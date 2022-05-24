@@ -1,5 +1,5 @@
 .hero-slider{
-    height: 60vh;
+    height: 100vh;
     overflow: hidden;
     position: relative;
     margin-top: calc(#{$header-height} * -1);
@@ -20,6 +20,10 @@
         position: absolute;
         inset: 0;
 
+        @include tablet{
+            flex-direction: column-reverse;
+        }
+
         &.active{
             opacity: 1;
             visibility: visible;
@@ -28,9 +32,15 @@
 
         &__info{
             width: 58.33%;
+            margin-right: 20px;
 
             @include tablet{
                 width: 100%;
+                margin-right: unset;
+                margin-top: 20px;
+                @include flex(center,center);
+                flex-direction: column;
+                text-align: center;
             }
 
             &__title{
@@ -46,6 +56,45 @@
                 color: $txt-second-color;
                 letter-spacing: 1px;
             }
+
+            &__title,
+            &__desc,
+            &__btn{
+                transform: translateY(-200%);
+                transition: .5s ease
+            }
+        }
+
+        &__image{
+            pointer-events: none;
+
+            img{
+                width: 100%;
+                transform: scale(0);
+                transition: .5s ease;
+            }
+        }
+
+        &.active &__info{
+            &__title,
+            &__desc,
+            &__btn{
+                transform: translateY(0);
+            }
+
+            &__title{
+                transition-delay: .2s;
+            }
+            &__desc{
+                transition-delay: .4s;
+            }
+            &__btn{
+                transition-delay: .6s;
+            }
+        }
+
+        &.active &__image > img{
+            transform: scale(1);
         }
     }
     &__control{
@@ -62,6 +111,20 @@
         &__item{
             font-size: 1.6rem;
             line-height: 1.6rem;
+            transition: .5s ease;
+            padding: 5px;
+            border-radius: 50%;
+            background-color: transparent;
+
+            &:hover{
+                background-color: rgba(230, 225, 225, 0.61);
+                transform: translateY(-2px);
+            }
+
+            &:nth-child(2):hover{
+                background-color: transparent;
+                transform: translateY(0);
+            }
         }
         &__icon{
             width: 2.5rem !important;

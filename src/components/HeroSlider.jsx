@@ -44,7 +44,7 @@ const HeroSlider = props => {
                             <ChevronLeftIcon className='hero-slider__control__icon'/>
                         </div>
                         <div className='hero-slider__control__item'>
-                            {activeSlide+1}/{data.length}
+                            {activeSlide+1} / {data.length}
                         </div>
                         <div className='hero-slider__control__item' onClick={nextSlide}>
                             <ChevronRightIcon className='hero-slider__control__icon'/>
